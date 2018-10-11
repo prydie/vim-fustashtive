@@ -18,7 +18,7 @@ function! s:bitbucket_server_url(opts, ...) abort
   if repo ==# ''
     return ''
   endif
-  let root = 'https://' . split(repo, '/')[0] . '/projects/' . toupper(split(repo, '/')[1]) . '/repos/' . split(repo, '/')[2]
+  let root = 'https://' . split(repo, ':')[0] . '/projects/' . toupper(split(repo, '/')[1]) . '/repos/' . split(repo, '/')[2]
   if path =~# '^\.git/refs/heads/'
     return root . '/commits/' . path[16:-1]
   elseif path =~# '^\.git/refs/tags/'
